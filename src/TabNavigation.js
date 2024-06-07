@@ -28,16 +28,17 @@ const TabNavigation = () => {
   const [page, setPage] = useState(1);
   const [api, setApi] = useState([]);
   useEffect(() => {
+    const handleFetchData = async () => {
+        const resData = await axios.get(
+          `https://jsonplaceholder.typicode.com/todos?_page=${page}`
+        );
+        const data = await resData.data;
+        //console.log("datas", data);
+        setApi(data);
+      };
     handleFetchData();
   }, [page,value]);
-  const handleFetchData = async () => {
-    const resData = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos?_page=${page}`
-    );
-    const data = await resData.data;
-    //console.log("datas", data);
-    setApi(data);
-  };
+  
 /*
   let [page, setPage] = useState(1);
   const PER_PAGE = 24;
