@@ -92,9 +92,15 @@ const TabPaginationNavigation = () => {
         setValue((prev) => (prev + 1) % tabs.length);
         //setPage(1);
     };
-    /*const handleAlarm = () => {
-        alert("test")
-    }*/
+   const handleChangeEvent=(e)=>{
+    setCurrentPage(e.target.value);
+   }
+   const handleChangePaymentEvent=(e)=>{
+    setPaymentCurrentPage(e.target.value);
+   }
+   const handleChangeTransactionEvent=(e)=>{
+    setTransactionCurrentPage(e.target.value);
+   }
 
     const handlePrevious = () => {
         setValue((prev) => (prev - 1 + tabs.length) % tabs.length);
@@ -124,8 +130,6 @@ const TabPaginationNavigation = () => {
             </Tabs>
 
             <Box sx={{ mt: 2 }}>
-
-
                 {tabs.map((label, index) => (
                     <Box
                         key={index}
@@ -146,7 +150,7 @@ const TabPaginationNavigation = () => {
                                 <TextField
                                     label=""
                                     size='small'
-
+                                    onChange={handleChangeEvent}
                                     variant='outlined'
                                     value={currentPage}
                                 /> </div><div style={{height: "38px",margin:"10px"}}>of {api.length}</div>
@@ -158,11 +162,11 @@ const TabPaginationNavigation = () => {
                             <div style={{ border: "1px solid gray", height: "38px" }}><FirstPageIcon fontSize="large"color={"primary"}  onClick={handleFirstPayment} /></div>&nbsp;
                             <div style={{ border: "1px solid gray", height: "38px" }}><NavigateBeforeIcon fontSize="large" color={"primary"} onClick={handlePaymentDecrement} /></div>&nbsp;
 
-                            <div style={{ width: "82px", height: "38px" }}>
+                            <div style={{ width: "62px", height: "38px" }}>
                                 <TextField
                                     label=""
                                     size='small'
-
+                                    onChange={handleChangePaymentEvent}
                                     variant='outlined'
                                     value={paymentCurrentPage}
                                 /></div>
@@ -175,11 +179,11 @@ const TabPaginationNavigation = () => {
                             <div style={{ border: "1px solid gray", height: "38px" }}><FirstPageIcon color={"primary"} fontSize="large" onClick={handleFirstTransaction} /></div>&nbsp;
                             <div style={{ border: "1px solid gray", height: "38px" }}><NavigateBeforeIcon color={"primary"} fontSize="large" onClick={handleTransactionDecrement} /></div>&nbsp;
 
-                            <div style={{ width: "82px", height: "38px" }}>
+                            <div style={{ width: "62px", height: "38px" }}>
                                 <TextField
                                     label=""
                                     size='small'
-
+                                    onChange={handleChangeTransactionEvent}
                                     variant='outlined'
                                     value={transactionCurrentPage}
                                 /></div>
