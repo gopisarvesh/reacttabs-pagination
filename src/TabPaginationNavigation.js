@@ -93,13 +93,25 @@ const TabPaginationNavigation = () => {
         //setPage(1);
     };
    const handleChangeEvent=(e)=>{
+    if(e.target.value<=api.length){
     setCurrentPage(e.target.value);
+    } else {
+       setCurrentPage(1);
+    }
    }
    const handleChangePaymentEvent=(e)=>{
+    if(e.target.value<=currentPosts[0].payment.length){
     setPaymentCurrentPage(e.target.value);
+    } else {
+        setPaymentCurrentPage(1);
+    }
    }
    const handleChangeTransactionEvent=(e)=>{
+    if(e.target.value<=currentPosts[0].transaction.length){
     setTransactionCurrentPage(e.target.value);
+    } else {
+        setTransactionCurrentPage(1);
+    }
    }
 
     const handlePrevious = () => {
@@ -144,7 +156,7 @@ const TabPaginationNavigation = () => {
                                 <FirstPageIcon fontSize="large" color={"primary"} onClick={handleFirst} />
                                 
                                 </div> &nbsp;
-                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateBeforeIcon color={"primary"} fontSize="large" onClick={handleDecrement} /></div>&nbsp;
+                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateBeforeIcon color={"primary"} fontSize="large"  onClick={(currentPage!=1)?handleDecrement:undefined} /></div>&nbsp;
 
                             <div style={{ width: "62px", height: "38px" }}>
                                 <TextField
@@ -154,13 +166,13 @@ const TabPaginationNavigation = () => {
                                     variant='outlined'
                                     value={currentPage}
                                 /> </div><div style={{height: "38px",margin:"10px"}}>of {api.length}</div>
-                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateNextIcon color={"primary"} fontSize="large" onClick={handleIncrement} /></div>&nbsp;
+                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateNextIcon color={"primary"} fontSize="large" onClick={(currentPage!=api.length)?handleIncrement:undefined} /></div>&nbsp;
                             <div style={{ border: "1px solid gray", height: "38px" }}><LastPageIcon color={"primary"} fontSize="large" onClick={handleLast} /></div>
                         </div>}
 
                         {value === 1 && <div key={index} style={{ "display": "flex" }}>
                             <div style={{ border: "1px solid gray", height: "38px" }}><FirstPageIcon fontSize="large"color={"primary"}  onClick={handleFirstPayment} /></div>&nbsp;
-                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateBeforeIcon fontSize="large" color={"primary"} onClick={handlePaymentDecrement} /></div>&nbsp;
+                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateBeforeIcon fontSize="large" color={"primary"} onClick={(paymentCurrentPage!=1)?handlePaymentDecrement:undefined} /></div>&nbsp;
 
                             <div style={{ width: "62px", height: "38px" }}>
                                 <TextField
@@ -171,13 +183,13 @@ const TabPaginationNavigation = () => {
                                     value={paymentCurrentPage}
                                 /></div>
                                 <div style={{height: "38px",margin:"10px"}}>of {currentPosts[0].payment.length}</div>
-                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateNextIcon color={"primary"} fontSize="large" onClick={handlePaymentIncrement} /></div>&nbsp;
+                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateNextIcon color={"primary"} fontSize="large" onClick={(paymentCurrentPage!=currentPosts[0].payment.length)?handlePaymentIncrement:undefined} /></div>&nbsp;
                             <div style={{ border: "1px solid gray", height: "38px" }}><LastPageIcon color={"primary"} fontSize="large" onClick={handleLastPayment} /></div>
                         </div>}
 
                         {value === 2 && <div key={index} style={{ "display": "flex" }}>
                             <div style={{ border: "1px solid gray", height: "38px" }}><FirstPageIcon color={"primary"} fontSize="large" onClick={handleFirstTransaction} /></div>&nbsp;
-                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateBeforeIcon color={"primary"} fontSize="large" onClick={handleTransactionDecrement} /></div>&nbsp;
+                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateBeforeIcon color={"primary"} fontSize="large" onClick={(transactionCurrentPage!=1)?handleTransactionDecrement:undefined} /></div>&nbsp;
 
                             <div style={{ width: "62px", height: "38px" }}>
                                 <TextField
@@ -188,7 +200,7 @@ const TabPaginationNavigation = () => {
                                     value={transactionCurrentPage}
                                 /></div>
                                 <div style={{height: "38px",margin:"10px"}}>of {currentPosts[0].transaction.length}</div>
-                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateNextIcon color={"primary"} fontSize="large" onClick={handleTransactionIncrement} /></div>&nbsp;
+                            <div style={{ border: "1px solid gray", height: "38px" }}><NavigateNextIcon color={"primary"} fontSize="large" onClick={(transactionCurrentPage!=currentPosts[0].transaction.length)?handleTransactionIncrement:undefined} /></div>&nbsp;
                             <div style={{ border: "1px solid gray", height: "38px" }}><LastPageIcon color={"primary"} fontSize="large" onClick={handleLastTransaction} /></div>
                         </div>}
 
