@@ -83,6 +83,7 @@ const TabNavigation = () => {
       siblingCount={1}
       variant="outlined"
       shape="rounded"
+      color='secondary'
       showFirstButton
       showLastButton
       firstPageText="First"
@@ -99,14 +100,15 @@ const TabNavigation = () => {
             id={`tabpanel-${index}`}
             aria-labelledby={`tab-${index}`}
           >
+            <ul>
             {value === 0 && (
               api.map((val) => (
                 <>
-                  <div style={{padding:"8px",color:"white",backgroundColor:"gray",margin:"3px",textAlign:"center"}}>{val.title}</div>
+                  <li style={{padding:"8px",color:"white",backgroundColor:"gray",margin:"3px",textAlign:"center"}}>{val.title}</li>
                 </>
               ))
             )}
-
+</ul>
 {value === 1 && (
               api.map((val) => (
                 <>
