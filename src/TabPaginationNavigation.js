@@ -185,6 +185,31 @@ const TabPaginationNavigation = () => {
                             <div style={{ border: "1px solid gray", height: "38px" }}><LastPageIcon fontSize="large" onClick={handleLastTransaction} /></div>
                         </div>}
 
+                        {value === 3 && (
+                            currentPostsTransaction.map((val) => (
+
+                                <div key={val.name} style={{ padding: "8px", display: "flex", flexDirection: "column" }}>
+                                    <TextField
+
+                                        label=""
+                                        size='small'
+                                        type="text"
+                                        placeholder='Name'
+                                        
+                                    /><br />
+                                    <TextField
+
+                                        label=""
+                                        size='small'
+                                        type="text"
+                                        placeholder='Amount'
+                                    />
+                                    
+                                </div>
+
+                            ))
+                        )}
+
 
                         {value === 2 && (
                             currentPostsTransaction.map((val) => (
