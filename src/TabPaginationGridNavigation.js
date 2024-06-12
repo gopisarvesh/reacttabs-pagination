@@ -269,7 +269,7 @@ const TabPaginationGridNavigation = () => {
           
           <Paper sx={{padding:"15px",margin:"6px"}} elevation={3}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
-            <TextField size='small' label="input 1" defaultValue={val.name} />&nbsp;&nbsp;<TextField size='small' defaultValue={val.amount} label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
+            <TextField size='small' label="Name" defaultValue={val.name} />&nbsp;&nbsp;<TextField size='small' defaultValue={val.amount} label="Amount" />&nbsp;&nbsp;<TextField size='small' label="Acc No." />&nbsp;&nbsp;<TextField size='small' label="Address" />&nbsp;&nbsp;
            </div>
            </Paper>
         </Grid>
