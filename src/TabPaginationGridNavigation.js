@@ -281,9 +281,9 @@ const TabPaginationGridNavigation = () => {
 
                                 <Grid key={val.name} container spacing={1}>
         <Grid item xs={6}>
-        <Box component="fieldset">
-        <legend style={{color:"blue"}}>Payment Info 1</legend>
-          <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
+        <Box component="fieldset" sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 1</legend>
+          <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
             <TextField size='small' label="Name" defaultValue={val.name} />&nbsp;&nbsp;<TextField size='small' defaultValue={val.amount} label="Amount" />&nbsp;&nbsp;<TextField size='small' label="Acc No." />&nbsp;&nbsp;<TextField size='small' label="Address" />&nbsp;&nbsp;
            </div>
@@ -292,39 +292,39 @@ const TabPaginationGridNavigation = () => {
         </Grid>
 
         <Grid item xs={6}>
-        <Box component="fieldset">
-        <legend style={{color:"blue"}}>Payment Info 2</legend>
+        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 2</legend>
           
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
            </div>
            </Paper>
            </Box>
         </Grid>
         <Grid item xs={6}> 
-        <Box component="fieldset">
-        <legend style={{color:"blue"}}>Payment Info 3</legend>
+        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 3</legend>
           
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
            </div>
            </Paper>
            </Box>
         </Grid>
         <Grid item xs={6}>
-        <Box component="fieldset">
-        <legend style={{color:"blue"}}>Payment Info 4</legend>
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
+        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 4</legend>
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
            </div>
            </Paper>
            </Box>
         </Grid>
         <Grid item xs={6}>
-        <Box component="fieldset">
-        <legend style={{color:"blue"}}>Payment Info 5</legend>
+        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 5</legend>
           
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
            <Autocomplete
       disablePortal
@@ -332,7 +332,7 @@ const TabPaginationGridNavigation = () => {
       options={topLocations}
      size='small'
      sx={{width:"210px"}}
-      renderInput={(params) => <TextField {...params} label="Autocomplete" />}
+      renderInput={(params) => <TextField {...params} label="Locations" />}
     />&nbsp;&nbsp;
     <div style={{marginTop:"-9px",marginLeft:"-7px"}}>
 <FormControl sx={{ m: 1, minWidth: 80 }}>
