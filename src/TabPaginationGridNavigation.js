@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Tabs, Tab, Box, Button, TextField,Grid,styled,Paper } from '@mui/material';
+import { Tabs, Tab, Box, Button, TextField,Grid,styled,Paper,Autocomplete,MenuItem,InputLabel,Select,FormControl } from '@mui/material';
 //import axios from "axios";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
@@ -27,6 +27,15 @@ const TabPaginationGridNavigation = () => {
             "transaction": [{ "id": 1, "name": "transactiontest31", "amount": 123 }, { "id": 1, "name": "transactiontest32", "amount": 123 }]
         }
     ];
+
+    const topLocations = [
+        { label: 'Value1', year: 1994 },
+        { label: 'Expleo', year: 1972 },
+        { label: 'Prince', year: 1974 },
+        { label: 'Mepz', year: 2008 },
+        { label: 'Pune', year: 1957 },
+        { label: "Bangalore", year: 1993 },
+        { label: 'Belgium', year: 1994 }];
     const [value, setValue] = useState(0);
     const tabs = ['Group Header', 'Payment', 'Transaction', 'Tab Four'];
     //const [page, setPage] = useState(1);
@@ -123,6 +132,12 @@ const TabPaginationGridNavigation = () => {
     const handlePrevious = () => {
         setValue((prev) => (prev - 1 + tabs.length) % tabs.length);
         //setPage(1)
+    };
+
+    const [age, setAge] = React.useState('');
+
+    const handleChangeDropdown = (event) => {
+      setAge(event.target.value);
     };
 
 
@@ -265,46 +280,87 @@ const TabPaginationGridNavigation = () => {
                             currentPostsPayment.map((val) => (
 
                                 <Grid key={val.name} container spacing={1}>
-        <Grid item xs={6}><h4>Payment Info 1</h4>
-          
-          <Paper sx={{padding:"15px",margin:"6px"}} elevation={3}>
+        <Grid item xs={6}>
+        <Box component="fieldset">
+        <legend style={{color:"blue"}}>Payment Info 1</legend>
+          <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
             <TextField size='small' label="Name" defaultValue={val.name} />&nbsp;&nbsp;<TextField size='small' defaultValue={val.amount} label="Amount" />&nbsp;&nbsp;<TextField size='small' label="Acc No." />&nbsp;&nbsp;<TextField size='small' label="Address" />&nbsp;&nbsp;
            </div>
            </Paper>
+           </Box>
         </Grid>
 
         <Grid item xs={6}>
-        <h4>Payment info 2</h4>
+        <Box component="fieldset">
+        <legend style={{color:"blue"}}>Payment Info 2</legend>
           
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={3}>
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
            </div>
            </Paper>
+           </Box>
+        </Grid>
+        <Grid item xs={6}> 
+        <Box component="fieldset">
+        <legend style={{color:"blue"}}>Payment Info 3</legend>
+          
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
+           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
+           </div>
+           </Paper>
+           </Box>
         </Grid>
         <Grid item xs={6}>
-        <h4>Payment info 3</h4>
-          
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={3}>
+        <Box component="fieldset">
+        <legend style={{color:"blue"}}>Payment Info 4</legend>
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
            </div>
            </Paper>
+           </Box>
         </Grid>
         <Grid item xs={6}>
-        <h4>Payment info 4</h4>
+        <Box component="fieldset">
+        <legend style={{color:"blue"}}>Payment Info 5</legend>
           
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={3}>
-           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={1}>
+           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
+           <Autocomplete
+      disablePortal
+      id="box-locations"
+      options={topLocations}
+     size='small'
+     sx={{width:"210px"}}
+      renderInput={(params) => <TextField {...params} label="Autocomplete" />}
+    />&nbsp;&nbsp;
+    <div style={{marginTop:"-9px",marginLeft:"-7px"}}>
+<FormControl sx={{ m: 1, minWidth: 80 }}>
+<InputLabel id="demo-simple-select-autowidth-label">Select</InputLabel>
+        <Select
+          labelId="demo-simple-select-autowidth-label"
+          id="demo-simple-select-autowidth"
+          value={age}
+          onChange={handleChangeDropdown}
+          autoWidth
+          label="Select"
+          size='small'
+          sx={{width:"210px"}}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Value1</MenuItem>
+          <MenuItem value={21}>Value2</MenuItem>
+          <MenuItem value={22}>Value3</MenuItem>
+        </Select></FormControl></div>&nbsp;&nbsp;
+            <TextField size='small' label="input 1" />&nbsp;&nbsp;
+            <TextField size='small' label="input 2" />&nbsp;&nbsp;
+           
+            
            </div>
            </Paper>
-        </Grid>
-        <Grid item xs={6}>
-        <h4>Payment info 5</h4>
-          
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={3}>
-           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
-           </div>
-           </Paper>
+           </Box>
         </Grid>
       </Grid>
 
