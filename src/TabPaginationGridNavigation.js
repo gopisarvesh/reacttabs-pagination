@@ -310,7 +310,7 @@ const TabPaginationGridNavigation = () => {
            </Accordion>
 
 
-           <Accordion defaultExpanded>
+           <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -354,7 +354,7 @@ const TabPaginationGridNavigation = () => {
       </Accordion>
 
 
-      <Accordion defaultExpanded>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -417,7 +417,7 @@ const TabPaginationGridNavigation = () => {
         
         
         <Grid item xs={6}>
-        <Accordion defaultExpanded>
+        <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -442,12 +442,12 @@ const TabPaginationGridNavigation = () => {
            </AccordionDetails>
            </Accordion>
 
-           <Accordion defaultExpanded>
+           <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
-          sx={{backgroundColor:"lightgrey",borderRadius:"4px"}}
+          sx={{backgroundColor:"lightgrey",borderRadius:"4px",height:"10px"}}
         >
             <Typography>Payment Info 4</Typography>
         </AccordionSummary>
