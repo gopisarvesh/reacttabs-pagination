@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Tabs, Tab, Box, Button, TextField,Grid,styled,Paper,Autocomplete,MenuItem,InputLabel,Select,FormControl } from '@mui/material';
+import { Tabs, Tab, Box, Button, TextField,Grid,styled,Paper,Autocomplete,MenuItem,InputLabel,Select,FormControl,Accordion,AccordionSummary,
+    AccordionDetails,Typography
+ } from '@mui/material';
+ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 //import axios from "axios";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
@@ -281,6 +284,18 @@ const TabPaginationGridNavigation = () => {
 
                                 <Grid key={val.name} container spacing={1}>
         <Grid item xs={6}>
+        <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          sx={{backgroundColor:"lightgrey",borderRadius:"4px"}}
+        >
+            <Typography>Payment Info 1</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Grid item xs={12}>
         <Box component="fieldset" sx={{borderRadius:"6px"}}>
         <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 1</legend>
           <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
@@ -289,54 +304,84 @@ const TabPaginationGridNavigation = () => {
            </div>
            </Paper>
            </Box>
-        </Grid>
+           </Grid>
+           </Typography>
+           </AccordionDetails>
+           </Accordion>
 
-        <Grid item xs={6}>
-        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
-        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 2</legend>
-          
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
-           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
-           </div>
-           </Paper>
-           </Box>
-        </Grid>
-        <Grid item xs={6}> 
-        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
-        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 3</legend>
-          
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
-           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
-           </div>
-           </Paper>
-           </Box>
-        </Grid>
-        <Grid item xs={6}>
-        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
-        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 4</legend>
-        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
-           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
-           </div>
-           </Paper>
-           </Box>
-        </Grid>
-        <Grid item xs={6}>
+
+           <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          sx={{backgroundColor:"lightgrey",borderRadius:"4px"}}
+        >
+            <Typography>Payment Info 3</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Grid item xs={12}>
+              <Box component="fieldset" sx={{ borderRadius: '6px' }}>
+                <legend style={{ color: '#1976d2', textAlign: 'left' }}>
+                  Payment Info 3
+                </legend>
+
+                <Paper sx={{ padding: '15px', margin: '6px' }} elevation={0}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      padding: '6px',
+                      marginLeft: '6px',
+                      rowGap: '10px',
+                    }}
+                  >
+                    <TextField size="small" label="input 1" />
+                    &nbsp;&nbsp;
+                    <TextField size="small" label="input 2" />
+                    &nbsp;&nbsp;
+                    <TextField size="small" label="input 3" />
+                    &nbsp;&nbsp;
+                    <TextField size="small" label="input 4" />
+                    &nbsp;&nbsp;
+                  </div>
+                </Paper>
+              </Box>
+            </Grid>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
+
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          sx={{backgroundColor:"lightgrey",borderRadius:"4px"}}
+        >
+            <Typography>Payment Info 5</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Grid item xs={12}>
         <Box component="fieldset"  sx={{borderRadius:"6px"}}>
         <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 5</legend>
           
         <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
            <Autocomplete
-      disablePortal
+      freeSolo
       id="box-locations"
       options={topLocations}
      size='small'
-     sx={{width:"210px"}}
+     sx={{width:"220px"}}
       renderInput={(params) => <TextField {...params} label="Locations" />}
     />&nbsp;&nbsp;
-    <div style={{marginTop:"-9px",marginLeft:"-7px"}}>
+    
 <FormControl sx={{ m: 1, minWidth: 80 }}>
-<InputLabel id="demo-simple-select-autowidth-label">Select</InputLabel>
+<InputLabel  id="demo-simple-select-autowidth-label">Select</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
@@ -345,7 +390,7 @@ const TabPaginationGridNavigation = () => {
           autoWidth
           label="Select"
           size='small'
-          sx={{width:"210px"}}
+          sx={{width:"220px"}}
         >
           <MenuItem value="">
             <em>None</em>
@@ -353,7 +398,7 @@ const TabPaginationGridNavigation = () => {
           <MenuItem value={10}>Value1</MenuItem>
           <MenuItem value={21}>Value2</MenuItem>
           <MenuItem value={22}>Value3</MenuItem>
-        </Select></FormControl></div>&nbsp;&nbsp;
+        </Select></FormControl>&nbsp;&nbsp;
             <TextField size='small' label="input 1" />&nbsp;&nbsp;
             <TextField size='small' label="input 2" />&nbsp;&nbsp;
            
@@ -361,6 +406,89 @@ const TabPaginationGridNavigation = () => {
            </div>
            </Paper>
            </Box>
+           </Grid>
+           </Typography>
+           </AccordionDetails>
+           </Accordion>
+
+
+        </Grid>
+
+        
+        
+        <Grid item xs={6}>
+        <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          sx={{backgroundColor:"lightgrey",borderRadius:"4px"}}
+        >
+            <Typography>Payment Info 2</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Grid item xs={12}>
+        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 2</legend>
+          
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
+           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
+           </div>
+           </Paper>
+           </Box>
+           </Grid>
+           </Typography>
+           </AccordionDetails>
+           </Accordion>
+
+           <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          sx={{backgroundColor:"lightgrey",borderRadius:"4px"}}
+        >
+            <Typography>Payment Info 4</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Grid item xs={12}>
+        <Box component="fieldset"  sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 4</legend>
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
+           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
+           </div>
+           </Paper>
+           </Box>
+           </Grid>
+           </Typography>
+           </AccordionDetails>
+           </Accordion>
+
+        </Grid>
+
+
+
+
+
+
+        <Grid item xs={6}> 
+        
+        {/*<Box component="fieldset"  sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 3</legend>
+          
+        <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
+           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}><TextField size='small' label="input 1" />&nbsp;&nbsp;<TextField size='small' label="input 2" />&nbsp;&nbsp;<TextField size='small' label="input 3" />&nbsp;&nbsp;<TextField size='small' label="input 4" />&nbsp;&nbsp;
+           </div>
+           </Paper>
+           </Box>*/}
+        </Grid>
+        <Grid item xs={6}>
+        
+        </Grid>
+        <Grid item xs={6}>
+        
         </Grid>
       </Grid>
 
