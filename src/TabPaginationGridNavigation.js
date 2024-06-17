@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Tabs, Tab, Box, Button, TextField,Grid,styled,Paper,Autocomplete,MenuItem,InputLabel,Select,FormControl,Accordion,AccordionSummary,
+import { Tabs, Tab, Box, Button, Collapse,TextField,Grid,styled,Paper,Autocomplete,MenuItem,InputLabel,Select,FormControl,Accordion,AccordionSummary,
     AccordionDetails,Typography
  } from '@mui/material';
  import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -8,6 +8,9 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+//import { makeStyles } from '@mui/styles';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -15,6 +18,20 @@ const Item = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
+
+  /*const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      maxWidth: 600,
+      margin: 'auto',
+      marginTop: '2',
+      padding: '2',
+    },
+    panel: {
+      padding: '2',
+      marginBottom: '2',
+    },
+  }));*/
 const TabPaginationGridNavigation = () => {
     let obj = [
         {
@@ -59,6 +76,12 @@ const TabPaginationGridNavigation = () => {
     const indexOfLastPostTransaction = transactionCurrentPage * postsPerPage;
     const indexOfFirstPostTransaction = indexOfLastPostTransaction - postsPerPage;
     const currentPostsTransaction = currentPosts[0]?.transaction.slice(indexOfFirstPostTransaction, indexOfLastPostTransaction);
+    //const classes = useStyles();
+    const [expanded, setExpanded] = useState(false);
+  
+    const handleExpandClick = () => { 
+      setExpanded(!expanded);
+    };
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -230,25 +253,31 @@ const TabPaginationGridNavigation = () => {
 
                         {value === 3 && (
                             currentPostsTransaction.map((val) => (
+<Grid key={val.name} container spacing={1}>
+        <Grid item xs={6}>
+       <div> 
+        {expanded ? <VisibilityIcon onClick={handleExpandClick} /> : <VisibilityOffIcon onClick={handleExpandClick} />}
+      </div>
+                               <div>
+                                    <Paper elevation={0} >
+      <Collapse in={expanded}>
+          <Typography variant="body1">
+          <Grid item xs={12}>
+        <Box component="fieldset" sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 1</legend>
+          <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
+           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
+            <TextField size='small' label="Name" defaultValue={val.name} />&nbsp;&nbsp;<TextField size='small' defaultValue={val.amount} label="Amount" />&nbsp;&nbsp;<TextField size='small' label="Acc No." />&nbsp;&nbsp;<TextField size='small' label="Address" />&nbsp;&nbsp;
+           </div>
+           </Paper>
+           </Box>
+           </Grid>
+          </Typography>
+      </Collapse>
+    </Paper></div>
 
-                                <div key={val.name} style={{ padding: "8px", display: "flex", flexDirection: "column" }}>
-                                    <TextField
-
-                                        label=""
-                                        size='small'
-                                        type="text"
-                                        placeholder='Name'
-                                        
-                                    /><br />
-                                    <TextField
-
-                                        label=""
-                                        size='small'
-                                        type="text"
-                                        placeholder='Amount'
-                                    />
-                                    
-                                </div>
+                 </Grid></Grid>                   
+                              
 
                             ))
                         )}
