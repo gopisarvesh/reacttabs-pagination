@@ -76,12 +76,19 @@ const TabPaginationGridNavigation = () => {
     const indexOfLastPostTransaction = transactionCurrentPage * postsPerPage;
     const indexOfFirstPostTransaction = indexOfLastPostTransaction - postsPerPage;
     const currentPostsTransaction = currentPosts[0]?.transaction.slice(indexOfFirstPostTransaction, indexOfLastPostTransaction);
-    //const classes = useStyles();
     const [expanded, setExpanded] = useState(true);
+    const [expandedinfo2, setExpandedinfo2] = useState(true);
+    const [expandedinfo3, setExpandedinfo3] = useState(true);
   
     const handleExpandClick = () => { 
       setExpanded(!expanded);
     };
+    const handleExpandClickinfo2 = () => { 
+        setExpandedinfo2(!expandedinfo2);
+      };
+      const handleExpandClickinfo3 = () => { 
+        setExpandedinfo3(!expandedinfo3);
+      };
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -276,7 +283,55 @@ const TabPaginationGridNavigation = () => {
       </Collapse>
     </Paper></div>
 
-                 </Grid></Grid>                   
+    <div style={{textAlign:"right"}}> 
+        {expandedinfo2 ? <VisibilityIcon onClick={handleExpandClickinfo2} /> : <VisibilityOffIcon onClick={handleExpandClickinfo2} />}
+      </div>
+    <div>
+                                    <Paper elevation={0} >
+      <Collapse in={expandedinfo2}>
+          <Typography variant="body1">
+          <Grid item xs={12}>
+        <Box component="fieldset" sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 3</legend>
+          <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
+           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
+            <TextField size='small' label="Name" defaultValue={val.name} />&nbsp;&nbsp;<TextField size='small' defaultValue={val.amount} label="Amount" />&nbsp;&nbsp;<TextField size='small' label="Acc No." />&nbsp;&nbsp;<TextField size='small' label="Address" />&nbsp;&nbsp;
+           </div>
+           </Paper>
+           </Box>
+           </Grid>
+          </Typography>
+      </Collapse>
+    </Paper></div>
+
+                 </Grid>
+                 <Grid item xs="6">
+
+                 <div style={{textAlign:"right"}}> 
+        {expandedinfo3 ? <VisibilityIcon onClick={handleExpandClickinfo3} /> : <VisibilityOffIcon onClick={handleExpandClickinfo3} />}
+      </div>
+    <div>
+                                    <Paper elevation={0} >
+      <Collapse in={expandedinfo3}>
+          <Typography variant="body1">
+          <Grid item xs={12}>
+        <Box component="fieldset" sx={{borderRadius:"6px"}}>
+        <legend style={{color:"#1976d2",textAlign:"left"}}>Payment Info 2</legend>
+          <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
+           <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
+            <TextField size='small' label="Name" defaultValue={val.name} />&nbsp;&nbsp;<TextField size='small' defaultValue={val.amount} label="Amount" />&nbsp;&nbsp;<TextField size='small' label="Acc No." />&nbsp;&nbsp;<TextField size='small' label="Address" />&nbsp;&nbsp;
+           </div>
+           </Paper>
+           </Box>
+           </Grid>
+          </Typography>
+      </Collapse>
+    </Paper></div>
+
+                 </Grid>
+                 
+                 
+                 </Grid>                   
                               
 
                             ))
