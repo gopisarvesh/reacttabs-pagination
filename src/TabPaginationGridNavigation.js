@@ -313,7 +313,7 @@ const TabPaginationGridNavigation = () => {
 
                                 <Grid key={val.name} container spacing={1}>
         <Grid item xs={6}>
-        <Accordion defaultExpanded>
+        <Accordion sx={{boxShadow:"none"}} defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -322,7 +322,7 @@ const TabPaginationGridNavigation = () => {
         >
             <Typography>Payment Info 1</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{padding:0}}>
           <Typography>
             <Grid item xs={12}>
         <Box component="fieldset" sx={{borderRadius:"6px"}}>
@@ -339,7 +339,7 @@ const TabPaginationGridNavigation = () => {
            </Accordion>
 
 
-           <Accordion>
+           <Accordion sx={{boxShadow:"none"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -348,7 +348,7 @@ const TabPaginationGridNavigation = () => {
         >
             <Typography>Payment Info 3</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{padding:0}}>
           <Typography>
             <Grid item xs={12}>
               <Box component="fieldset" sx={{ borderRadius: '6px' }}>
@@ -383,7 +383,7 @@ const TabPaginationGridNavigation = () => {
       </Accordion>
 
 
-      <Accordion>
+      <Accordion sx={{boxShadow:"none"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -392,7 +392,7 @@ const TabPaginationGridNavigation = () => {
         >
             <Typography>Payment Info 5</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{padding:0}}>
           <Typography>
             <Grid item xs={12}>
         <Box component="fieldset"  sx={{borderRadius:"6px"}}>
@@ -446,7 +446,7 @@ const TabPaginationGridNavigation = () => {
         
         
         <Grid item xs={6}>
-        <Accordion>
+        <Accordion sx={{boxShadow:"none"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -455,7 +455,7 @@ const TabPaginationGridNavigation = () => {
         >
             <Typography>Payment Info 2</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{padding:0}}>
           <Typography>
             <Grid item xs={12}>
         <Box component="fieldset"  sx={{borderRadius:"6px"}}>
@@ -471,7 +471,7 @@ const TabPaginationGridNavigation = () => {
            </AccordionDetails>
            </Accordion>
 
-           <Accordion>
+           <Accordion sx={{boxShadow:"none"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -480,7 +480,7 @@ const TabPaginationGridNavigation = () => {
         >
             <Typography>Payment Info 4</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{padding:0}}>
           <Typography>
             <Grid item xs={12}>
         <Box component="fieldset"  sx={{borderRadius:"6px"}}>
