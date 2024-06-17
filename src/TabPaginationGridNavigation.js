@@ -77,7 +77,7 @@ const TabPaginationGridNavigation = () => {
     const indexOfFirstPostTransaction = indexOfLastPostTransaction - postsPerPage;
     const currentPostsTransaction = currentPosts[0]?.transaction.slice(indexOfFirstPostTransaction, indexOfLastPostTransaction);
     //const classes = useStyles();
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState(true);
   
     const handleExpandClick = () => { 
       setExpanded(!expanded);
@@ -255,7 +255,7 @@ const TabPaginationGridNavigation = () => {
                             currentPostsTransaction.map((val) => (
 <Grid key={val.name} container spacing={1}>
         <Grid item xs={6}>
-       <div> 
+       <div style={{textAlign:"right"}}> 
         {expanded ? <VisibilityIcon onClick={handleExpandClick} /> : <VisibilityOffIcon onClick={handleExpandClick} />}
       </div>
                                <div>
