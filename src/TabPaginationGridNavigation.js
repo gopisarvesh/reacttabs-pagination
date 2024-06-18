@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, Tab, Box, Button, Collapse,TextField,Grid,styled,Paper,Autocomplete,MenuItem,InputLabel,Select,FormControl,Accordion,AccordionSummary,
-    AccordionDetails,Typography
+    AccordionDetails,Typography,Tooltip
  } from '@mui/material';
  import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 //import axios from "axios";
@@ -262,8 +262,10 @@ const TabPaginationGridNavigation = () => {
                             currentPostsTransaction.map((val) => (
 <Grid key={val.name} container spacing={1}>
         <Grid item xs={6}>
-       <div style={{textAlign:"right"}}> 
+       <div style={{textAlign:"right"}}> {(!expanded) && <span style={{marginTop:"-6px"}}>Payment info 1</span>}
+       <Tooltip title="Payment info 1">
         {expanded ? <VisibilityIcon onClick={handleExpandClick} /> : <VisibilityOffIcon onClick={handleExpandClick} />}
+        </Tooltip>
       </div>
                                <div>
                                     <Paper elevation={0} >
@@ -283,8 +285,10 @@ const TabPaginationGridNavigation = () => {
       </Collapse>
     </Paper></div>
 
-    <div style={{textAlign:"right"}}> 
+    <div style={{textAlign:"right"}}>{(!expandedinfo2) && <span style={{marginTop:"-6px"}}>Payment info 3</span>}
+    <Tooltip title="Payment info 3"> 
         {expandedinfo2 ? <VisibilityIcon onClick={handleExpandClickinfo2} /> : <VisibilityOffIcon onClick={handleExpandClickinfo2} />}
+      </Tooltip>
       </div>
     <div>
                                     <Paper elevation={0} >
@@ -306,9 +310,10 @@ const TabPaginationGridNavigation = () => {
 
                  </Grid>
                  <Grid item xs="6">
-
-                 <div style={{textAlign:"right"}}> 
+                 <div style={{textAlign:"right"}}> {(!expandedinfo3) && <span style={{marginTop:"-6px"}}>Payment info 2</span>}
+                 <Tooltip title="Payment info 2"> 
         {expandedinfo3 ? <VisibilityIcon onClick={handleExpandClickinfo3} /> : <VisibilityOffIcon onClick={handleExpandClickinfo3} />}
+      </Tooltip>
       </div>
     <div>
                                     <Paper elevation={0} >
@@ -466,7 +471,7 @@ const TabPaginationGridNavigation = () => {
     /></Grid>&nbsp;&nbsp;
     <Grid item xs={4}>
 <FormControl sx={{ width:"100%"}}>
-<InputLabel  id="demo-simple-select-autowidth-label">Select</InputLabel>
+<InputLabel sx={{marginTop:"-5px"}}  id="demo-simple-select-autowidth-label">Select</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
@@ -484,7 +489,7 @@ const TabPaginationGridNavigation = () => {
           <MenuItem value={21}>Value2</MenuItem>
           <MenuItem value={22}>Value3</MenuItem>
         </Select></FormControl></Grid>&nbsp;&nbsp;&nbsp;
-            <TextField size='small' label="input 1" />&nbsp;&nbsp;&nbsp;
+            <TextField size='small' label="input 1" />&nbsp;&nbsp;
             <TextField size='small' label="input 2" />&nbsp;&nbsp;
            
             
