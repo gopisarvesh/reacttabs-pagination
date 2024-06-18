@@ -455,16 +455,17 @@ const TabPaginationGridNavigation = () => {
           
         <Paper sx={{padding:"15px",margin:"6px"}} elevation={0}>
            <div style={{display:"flex",flexWrap:"wrap",padding:"6px",marginLeft:"6px",rowGap:"10px"}}>
+            <Grid item xs={4}>
            <Autocomplete
       freeSolo
       id="box-locations"
       options={topLocations}
      size='small'
-     sx={{width:"220px"}}
+     
       renderInput={(params) => <TextField {...params} label="Locations" />}
-    />&nbsp;&nbsp;
-    
-<FormControl sx={{ m: 1, minWidth: 80 }}>
+    /></Grid>&nbsp;&nbsp;
+    <Grid item xs={4}>
+<FormControl sx={{ width:"100%"}}>
 <InputLabel  id="demo-simple-select-autowidth-label">Select</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
@@ -474,7 +475,7 @@ const TabPaginationGridNavigation = () => {
           autoWidth
           label="Select"
           size='small'
-          sx={{width:"220px"}}
+          
         >
           <MenuItem value="">
             <em>None</em>
@@ -482,8 +483,8 @@ const TabPaginationGridNavigation = () => {
           <MenuItem value={10}>Value1</MenuItem>
           <MenuItem value={21}>Value2</MenuItem>
           <MenuItem value={22}>Value3</MenuItem>
-        </Select></FormControl>&nbsp;&nbsp;
-            <TextField size='small' label="input 1" />&nbsp;&nbsp;
+        </Select></FormControl></Grid>&nbsp;&nbsp;&nbsp;
+            <TextField size='small' label="input 1" />&nbsp;&nbsp;&nbsp;
             <TextField size='small' label="input 2" />&nbsp;&nbsp;
            
             
